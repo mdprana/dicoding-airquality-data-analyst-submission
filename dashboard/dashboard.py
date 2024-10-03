@@ -5,6 +5,7 @@ import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
+import os
 
 # Set page config
 st.set_page_config(page_title="Beijing Air Quality Analysis", layout="wide", page_icon="🌬️")
@@ -32,16 +33,17 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Load data
+base_dir = os.path.dirname(os.path.abspath(__file__))
 @st.cache_data
 def load_data():
-    data = pd.read_csv('./dashboard/main_data.csv')
+    data = pd.read_csv(os.path.join(base_dir, 'main_data.csv'))
     data['datetime'] = pd.to_datetime('2013-03-01') + pd.to_timedelta(data['No'] - 1, unit='H')
     return data
 
 data = load_data()
 
 # Sidebar
-st.sidebar.image("./dashboard/air-quality.jpg", use_column_width=True)
+st.sidebar.image(os.path.join(base_dir, 'air-quality.jpg'), use_column_width=True)
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("", ["🏠 Home", "📊 Pollutant Analysis", "🌡️ Weather Impact", "📈 Long-term Trends"])
 
