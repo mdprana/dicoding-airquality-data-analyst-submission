@@ -31,3 +31,6 @@ or
 ```
 streamlit run ./dashboard/dashboard.py
 ```
+
+## You can also access the dashboard via the Streamlit at the following link:
+https://airquality-mdprana.streamlit.app/
