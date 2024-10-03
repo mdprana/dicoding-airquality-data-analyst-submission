@@ -20,12 +20,14 @@ pip install -r requirements.txt
 
 ## Run steamlit app
 ```
-streamlit run ./dashboard/dashboard.py
-```
-or
-```
 cd dashboard
 ```
 ```
 streamlit run dashboard.py
+```
+
+or
+
+```
+streamlit run ./dashboard/dashboard.py
 ```
